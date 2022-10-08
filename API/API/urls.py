@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 import USERS.views as USER_MODEl
 
 urlpatterns = [
@@ -25,3 +27,7 @@ urlpatterns = [
     path("users/delete/<int:id>", USER_MODEl.DeleteUserById),
     path("users/add/", USER_MODEl.AddNewUser),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.IMAGES_URL,
+                          document_root=settings.IMAGES_ROOT)
