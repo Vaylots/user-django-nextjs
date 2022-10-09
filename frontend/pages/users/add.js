@@ -1,7 +1,9 @@
-import axios from "axios";
-import { useRef } from "react";
-import { useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
+import { useState } from "react";
+import { useRef } from "react";
+import axios from "axios";
+
 const AddUser = () => {
   const newUsername = useRef(null);
   const newAge = useRef(null);
@@ -21,30 +23,34 @@ const AddUser = () => {
       });
   };
   return (
-    <div className="flex h-screen justify-center items-center">
+    <div className="flex h-screen items-center justify-center">
+      <Head>
+        <title>Добавление пользователя</title>
+        <link rel="icon" href="public/favicon.ico" type="image/x-icon" />
+      </Head>
       {!addded ? (
-        <div className="flex border-2 bg-white  border-gray-400 p-10 rounded-lg items-center  flex-col shadow-2xl">
+        <div className="flex flex-col items-center  rounded-lg border-2 border-gray-400 bg-white  p-10 shadow-2xl">
           <span>Добавление пользователя</span>
           <input
-            className="border-2 border-gray-400 my-2 py-1 px-3 rounded-lg"
+            className="my-2 rounded-lg border-2 border-gray-400 py-1 px-3"
             type="text"
             ref={newUsername}
             placeholder="Новое имя..."
           />
           <input
-            className="border-2 border-gray-400 my-2 py-1 px-3 rounded-lg"
+            className="my-2 rounded-lg border-2 border-gray-400 py-1 px-3"
             type="text"
             ref={newAge}
             placeholder="Новый возраст"
           />
           <input
-            className="border-2 border-gray-400 my-2 py-1 px-3 rounded-lg"
+            className="my-2 rounded-lg border-2 border-gray-400 py-1 px-3"
             type="text"
             ref={newGender}
             placeholder="Новое пол..."
           />
           <input
-            className="border-2 border-gray-400 my-2 py-1 px-3 rounded-lg"
+            className="my-2 rounded-lg border-2 border-gray-400 py-1 px-3"
             type="text"
             ref={newBirthday}
             placeholder="Новая дата рождения..."
@@ -53,21 +59,21 @@ const AddUser = () => {
             onClick={() => {
               editPost();
             }}
-            className="border-2 border-gray-400 mt-5 w-full shadow-lg hover:bg-gray-100 border-gray"
+            className="border-gray mt-5 w-full border-2 border-gray-400 shadow-lg hover:bg-gray-100"
           >
             Добавить
           </button>
           <Link href={"/"}>
-            <button className="border-2  border-gray-400 mt-5 w-full shadow-lg hover:bg-gray-100 border-gray">
+            <button className="border-gray  mt-5 w-full border-2 border-gray-400 shadow-lg hover:bg-gray-100">
               Главная
             </button>
           </Link>
         </div>
       ) : (
-        <div className="flex border-2 h-48 bg-white items-center border-gray-400 p-10 rounded-lg justify-center  flex-col shadow-2xl">
+        <div className="flex h-48 flex-col items-center justify-center rounded-lg border-2 border-gray-400 bg-white  p-10 shadow-2xl">
           <p>Пользователь добавлен</p>
           <Link href={"/"}>
-            <button className="border-2 w-full  border-gray-400 mt-5  shadow-lg hover:bg-gray-100 border-gray">
+            <button className="border-gray mt-5  w-full border-2  border-gray-400 shadow-lg hover:bg-gray-100">
               Главная
             </button>
           </Link>

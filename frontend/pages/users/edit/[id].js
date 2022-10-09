@@ -1,7 +1,8 @@
-import axios from "axios";
+import Link from "next/link";
 import { useRef } from "react";
 import { useState } from "react";
-import Link from "next/link";
+import axios from "axios";
+
 const AddUser = ({ user }) => {
   const newUsername = useRef(null);
   const newAge = useRef(null);

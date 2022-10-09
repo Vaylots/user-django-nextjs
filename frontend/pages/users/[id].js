@@ -1,15 +1,20 @@
-import axios from "axios";
 import Image from "next/image";
-import { AvatarLoader } from "../../Components/Loaders";
+import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
+import { AvatarLoader } from "../../Components/Loaders";
+import axios from "axios";
 
 const User = ({ user }) => {
   const [male, setMale] = useState("M");
   return (
-    <div className="flex  h-screen justify-center items-center">
-      <div className=" border-2 bg-white w-1/3 rounded-lg p-4 shadow-2xl">
-        <ul className="flex items-center  flex-col">
+    <div className="flex  h-screen items-center justify-center">
+      <Head>
+        <title>Edit {user.username}</title>
+        <link rel="icon" href="public/favicon.ico" type="image/x-icon" />
+      </Head>
+      <div className=" w-1/3 rounded-lg border-2 bg-white p-4 shadow-2xl">
+        <ul className="flex flex-col  items-center">
           <Image
             className="border"
             loader={AvatarLoader}
@@ -27,12 +32,12 @@ const User = ({ user }) => {
           <li className="mb-1">Пол:</li>
           {user.gender == male ? <li>Мужчина</li> : <li>Женщина</li>}
         </ul>
-        <div className="flex justify-between my-3 mx-3 ">
-          <button className="border-2 w-1/3 mx-1 shadow-lg hover:bg-gray-100 border-gray">
+        <div className="my-3 mx-3 flex justify-between ">
+          <button className="border-gray mx-1 w-1/3 border-2 shadow-lg hover:bg-gray-100">
             Изменить
           </button>
           <Link href={"/"}>
-            <button className="border-2 w-1/3 mx-1 shadow-lg hover:bg-gray-100  border-gray">
+            <button className="border-gray mx-1 w-1/3 border-2 shadow-lg  hover:bg-gray-100">
               Главная
             </button>
           </Link>
@@ -41,7 +46,7 @@ const User = ({ user }) => {
               onClick={() => {
                 axios.get(`http://127.0.0.1:8080/users/delete/${user.id}`);
               }}
-              className="border-2 w-1/3 mx-1 shadow-lg hover:bg-gray-100  border-gray"
+              className="border-gray mx-1 w-1/3 border-2 shadow-lg  hover:bg-gray-100"
             >
               Удалить
             </button>
