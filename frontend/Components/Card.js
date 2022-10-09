@@ -1,17 +1,18 @@
 import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
+import { AvatarLoader } from "./Loaders";
 import { useState } from "react";
 
 export const Card = ({ id, username, age, gender, birthday, image }) => {
   const [male, setMale] = useState("M");
   const [deleted, setDeleted] = useState(false);
   return (
-    <div className="border-2 w-4/6  mb-10 px-1 py-3 rounded-lg shadow-2xl">
+    <div className="border-2 w-3/4 border-gray-300 bg-white mb-10 px-1 py-3 rounded-lg shadow-2xl">
       {!deleted ? (
         <div>
-          <ul className="flex items-center flex-col">
-            <img className="w-48 h-48" src={`http://localhost:8080/${image}`} />
+          <ul className="flex items-center  flex-col">
+            <Image loader={AvatarLoader} width={250} height={250} src={image} />
             <li className="mb-2">Данные пользователя:</li>
             <li className="mb-1 ">Имя: </li>
             <li className="mb-1 ">{username}</li>

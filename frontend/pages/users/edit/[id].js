@@ -82,7 +82,6 @@ export async function getServerSideProps(context) {
     `http://127.0.0.1:8080/users/${context.params.id}`
   );
   const user = response.data[0];
-  console.log(user);
 
   return {
     props: { user }, // will be passed to the page component as props
