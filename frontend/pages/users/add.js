@@ -25,7 +25,7 @@ const AddUser = () => {
   return (
     <div className="flex h-screen items-center justify-center">
       <Head>
-        <title>Добавление пользователя</title>
+        <title>Добавить пользователя</title>
         <link rel="icon" href="public/favicon.ico" type="image/x-icon" />
       </Head>
       {!addded ? (
@@ -47,8 +47,9 @@ const AddUser = () => {
             className="my-2 rounded-lg border-2 border-gray-400 py-1 px-3"
             type="text"
             ref={newGender}
-            placeholder="Новое пол..."
+            placeholder="Новый пол... (F M) "
           />
+
           <input
             className="my-2 rounded-lg border-2 border-gray-400 py-1 px-3"
             type="text"
